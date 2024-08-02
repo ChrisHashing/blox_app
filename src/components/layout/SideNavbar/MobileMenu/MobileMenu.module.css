@@ -1,0 +1,163 @@
+.mobileMenuButton {
+    display: none;
+    bottom: 4rem;
+    right: 1rem;
+    color: var(--color);
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bottomNav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    z-index: 1000;
+    background-color: var(--sidebar-background);
+    justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(128, 128, 128, 0.49) ;
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--sidebar-background);    color: white;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: top 0.3s ease-in-out;
+    gap: 10px;
+}
+
+.mobileMenu.open {
+    top: 0;
+}
+
+.navItem {
+    color: var(--color);
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+.wrapper {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--color);
+    height: 100%;
+
+}
+
+
+
+.profile {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+}
+.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.profile a{
+        color: var(--color);
+        text-decoration: none;
+        margin: 10px;
+}
+.profile a:hover {
+    color: gray;
+   
+}
+
+.developer {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    
+}
+
+.social {
+    height: 130px;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.socialIcons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.socialIcon {
+    font-size: 1.5rem;
+    color: var(--icon-color);
+    text-decoration: none;
+}
+
+.socialIcon:hover {
+    color: var(--icon-hover-color);
+}
+
+.footerText {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+.theme{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .mobileMenuButton {
+        display: block;
+    }
+}
