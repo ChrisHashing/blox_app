@@ -19,14 +19,6 @@ const DarkModeBtn: React.FC = () => {
         setIsDarkMode(false);
     };
 
-    const toggleTheme = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.checked) {
-            setDarkMode();
-        } else {
-            setLightMode();
-        }
-    };
-
     const applyTheme = () => {
         // Check for a saved theme in localStorage
         const savedTheme = localStorage.getItem("selectedTheme");
