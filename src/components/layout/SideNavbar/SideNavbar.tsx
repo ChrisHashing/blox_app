@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './SideNavbar.module.css';
 import DarkModeBtn from './DarkModeBtn/DarkModeBtn';
@@ -10,9 +10,26 @@ import { IoGlobeOutline } from 'react-icons/io5';
 import MobileMenuNav from './MobileMenu/MobileMenuNav';
 
 const SideNavbar: React.FC = () => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProfileExpanded, setIsProfileExpanded] = useState(false);
+
+    // Function to handle resize and update the collapse state
+    const handleResize = () => {
+        setIsCollapsed(window.innerWidth < 1024);
+    };
+
+    useEffect(() => {
+        // Set initial state based on window width
+        handleResize();
+        // Add event listener for window resize
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
@@ -61,7 +78,7 @@ const SideNavbar: React.FC = () => {
                                         ),
                                         children: (
                                             <ul className={styles.subNavList}>
-                                                <li><Link  href="/account">My Account</Link></li>
+                                                <li><Link href="/account">My Account</Link></li>
                                                 <li><Link href="/portfolio">Portfolio</Link></li>
                                             </ul>
                                         ),
@@ -96,7 +113,6 @@ const SideNavbar: React.FC = () => {
                     </li>
                 </ul>
                 <div className={styles.footer}>
-                    
                     {!isCollapsed ? (
                         <div>
                             <div className={styles.socialIcons}>
