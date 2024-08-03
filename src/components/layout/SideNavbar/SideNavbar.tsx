@@ -136,10 +136,11 @@ const SideNavbar: React.FC = () => {
                     ) : (
                         <div className={styles.collapseFooterIcon}>
                             {isCollapsed && (
+                                
                                 <Tooltip color={'white'} placement="right" title={
                                     <ul className={styles.subNavList}>
                                         <div className={styles.tooltip}>
-                                            <div className={styles.theme}>Theme:<DarkModeBtn /></div>
+                                            <div className={styles.theme}>Theme: <DarkModeBtn /></div>
                                             <div className={styles.socialIcons}>
                                                 <a href="https://twitter.com" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
                                                     <FaTwitter />
