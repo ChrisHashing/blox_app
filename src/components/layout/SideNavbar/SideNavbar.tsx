@@ -96,7 +96,7 @@ const SideNavbar: React.FC = () => {
                     </li>
                 </ul>
                 <div className={styles.footer}>
-                    {!isCollapsed && <DarkModeBtn />}
+                    
                     {!isCollapsed ? (
                         <div>
                             <div className={styles.socialIcons}>
@@ -149,6 +149,7 @@ const SideNavbar: React.FC = () => {
                             )}
                         </div>
                     )}
+                    {!isCollapsed && <DarkModeBtn />}
                 </div>
             </nav>
             <div className={styles.bottomNav}>
