@@ -50,7 +50,7 @@
 .dark_mode_label svg {
     position: absolute;
     width: 20px;
-    top: 5px;
+    top: 8px;
     z-index: 1;
 }
 

@@ -1,18 +1,21 @@
-import React, { ChangeEvent, useEffect } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import style from "./DarkMode.module.css";
 import { BsFillMoonFill } from "react-icons/bs";
 import { IoIosSunny } from "react-icons/io";
 
 const DarkModeBtn: React.FC = () => {
+    const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
     const setDarkMode = () => {
         document.querySelector("body")?.setAttribute("data-theme", "dark");
         localStorage.setItem("selectedTheme", "dark");
+        setIsDarkMode(true);
     };
 
     const setLightMode = () => {
         document.querySelector("body")?.setAttribute("data-theme", "light");
         localStorage.setItem("selectedTheme", "light");
+        setIsDarkMode(false);
     };
 
     const toggleTheme = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,15 +26,32 @@ const DarkModeBtn: React.FC = () => {
         }
     };
 
-    useEffect(() => {
-        const selectedTheme = localStorage.getItem("selectedTheme");
-        if (selectedTheme === "dark") {
-            setDarkMode();
-            const toggle = document.getElementById('darkmode-toggle') as HTMLInputElement;
-            if (toggle) {
-                toggle.checked = true;
+    const applyTheme = () => {
+        // Check for a saved theme in localStorage
+        const savedTheme = localStorage.getItem("selectedTheme");
+
+        if (savedTheme) {
+            // Apply the saved theme
+            if (savedTheme === "dark") {
+                setDarkMode();
+            } else {
+                setLightMode();
             }
+        } else {
+            // No saved theme, use system preference
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (prefersDarkScheme) {
+                setDarkMode();
+            } else {
+                setLightMode();
+            }
+            // Mark that the theme has been applied
+            localStorage.setItem("loaded", "true");
         }
+    };
+
+    useEffect(() => {
+        applyTheme();
     }, []);
 
     return (
@@ -40,6 +60,7 @@ const DarkModeBtn: React.FC = () => {
                 className={style.dark_mode_input}
                 type="checkbox"
                 id="darkmode-toggle"
+                checked={isDarkMode}
                 onChange={toggleTheme}
             />
             <label className={style.dark_mode_label} htmlFor="darkmode-toggle">
@@ -48,6 +69,6 @@ const DarkModeBtn: React.FC = () => {
             </label>
         </div>
     );
-}
+};
 
 export default DarkModeBtn;
