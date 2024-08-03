@@ -25,6 +25,12 @@
     margin-top: 7px;
 }
 .icon_user {
+    margin-left: 9px;
+    cursor: pointer;
+    margin-top: 28px;
+}
+
+.icon_info {
     cursor: pointer;
     margin-top: 28px;
 }

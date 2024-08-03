@@ -149,7 +149,7 @@ const SideNavbar: React.FC = () => {
                                         </div>
                                     </ul>
                                 }>
-                                    <span className={styles.icon_user}><FaInfoCircle size={30} /></span>
+                                    <span className={styles.icon_info}><FaInfoCircle size={30} /></span>
                                 </Tooltip>
                             )}
                         </div>
