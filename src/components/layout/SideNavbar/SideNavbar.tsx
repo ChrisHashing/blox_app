@@ -51,13 +51,14 @@ const SideNavbar: React.FC = () => {
                 </div>
                 <ul className={styles.navList}>
                     {isCollapsed ? (
+                        
                         <Tooltip color={'white'} placement="right" title={
                             <ul className={styles.subNavList}>
                                 <li><Link className={styles.link_tag} href="/account">My Account</Link></li>
                                 <li><Link className={styles.link_tag} href="/portfolio">Portfolio</Link></li>
                             </ul>
                         }>
-                            <span className={styles.icon_user}><FaUserCircle size={30} /></span>
+                            <span className={styles.icon_user}><FaUserCircle size={26} /></span>
                         </Tooltip>
                     ) : (
                         <li>
@@ -87,6 +88,14 @@ const SideNavbar: React.FC = () => {
                             />
                         </li>
                     )}
+
+                    {/* <li className={styles.sidebar_link}>
+                        <Link href="/explorer">
+                            <span className={styles.icon}><FaUserCircle size={26} /></span>
+                            {!isCollapsed && 'Explorer'}
+                        </Link>
+                    </li> */}
+
                     <li className={styles.sidebar_link}>
                         <Link href="/explorer">
                             <span className={styles.icon}><FaRegFolder size={26} /></span>
@@ -113,34 +122,13 @@ const SideNavbar: React.FC = () => {
                     </li>
                 </ul>
                 <div className={styles.footer}>
-                    {!isCollapsed ? (
-                        <div>
-                            <div className={styles.socialIcons}>
-                                <a href="https://twitter.com" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
-                                    <FaTwitter />
-                                </a>
-                                <a href="https://discord.com" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
-                                    <FaDiscord />
-                                </a>
-                                <a href="https://t.me" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
-                                    <FaTelegramPlane />
-                                </a>
-                            </div>
-                            <div className={styles.footerText}>
-                                Privacy Policy | Terms of Use
-                            </div>
-                            <div className={styles.footerText}>
-                                © Blox Solutions, LLC - 2024
-                            </div>
-                        </div>
-                    ) : (
+                    {isCollapsed ? (
                         <div className={styles.collapseFooterIcon}>
                             {isCollapsed && (
-                                
                                 <Tooltip color={'white'} placement="right" title={
                                     <ul className={styles.subNavList}>
                                         <div className={styles.tooltip}>
-                                            <div className={styles.theme}>Theme: <DarkModeBtn /></div>
+                                            <div className={styles.theme}>Theme:<DarkModeBtn /></div>
                                             <div className={styles.socialIcons}>
                                                 <a href="https://twitter.com" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
                                                     <FaTwitter />
@@ -164,6 +152,26 @@ const SideNavbar: React.FC = () => {
                                     <span className={styles.icon_user}><FaInfoCircle size={30} /></span>
                                 </Tooltip>
                             )}
+                        </div>
+                    ) : (
+                        <div>
+                            <div className={styles.socialIcons}>
+                                <a href="https://twitter.com" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                                    <FaTwitter />
+                                </a>
+                                <a href="https://discord.com" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                                    <FaDiscord />
+                                </a>
+                                <a href="https://t.me" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                                    <FaTelegramPlane />
+                                </a>
+                            </div>
+                            <div className={styles.footerText}>
+                                Privacy Policy | Terms of Use
+                            </div>
+                            <div className={styles.footerText}>
+                                © Blox Solutions, LLC - 2024
+                            </div>
                         </div>
                     )}
                     {!isCollapsed && <DarkModeBtn />}

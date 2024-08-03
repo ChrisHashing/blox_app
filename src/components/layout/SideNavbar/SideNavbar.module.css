@@ -11,16 +11,23 @@
     transition: width 0.3s;
     padding: 10px;
     background-color: var(--sidebar-background);
+
 }
 
 .menuItem {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20px;
+    height: 10px;
     align-items: center;
     justify-content: flex-start;
     width: 165px;
+    margin-top: 7px;
+}
+.icon_user {
+    margin-left: 9px;
+    cursor: pointer;
+    margin-top: 28px;
 }
 
 .link_tag {
@@ -28,10 +35,7 @@
     padding-right: 30px;
 }
 
-.icon_user {
-    margin-left: 5px;
-    cursor: pointer;
-}
+
 
 .noBg {
     background-color: transparent !important;
@@ -40,7 +44,7 @@
 
 }
 
-.subNavList li a{
+.subNavList li a {
     color: black !important;
 }
 
@@ -120,8 +124,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     gap: 1rem;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+    min-height: 200px;
 }
 
 .socialIcons {
@@ -160,6 +166,9 @@
     display: none;
 }
 
+
+
+
 @media (max-width: 768px) {
     .socialIcons {
         display: none;
@@ -189,13 +198,13 @@
 }
 
 .ArrowForward {
-    margin-left: 10px;
-    padding-top: 10px;
+
 }
 
 .ArrowBack {
     padding-top: 10px;
     float: right;
+    margin-bottom: -6px;
 }
 
 .tooltip {
