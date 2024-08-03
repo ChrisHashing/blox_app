@@ -2,6 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import style from "./DarkMode.module.css";
 import { BsFillMoonFill } from "react-icons/bs";
 import { IoIosSunny } from "react-icons/io";
+import { Switch } from 'antd';
 
 const DarkModeBtn: React.FC = () => {
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
@@ -53,20 +54,21 @@ const DarkModeBtn: React.FC = () => {
     useEffect(() => {
         applyTheme();
     }, []);
-
+    const onChange = (checked:any) => {
+        console.log(`switch to ${checked}`);
+        if (checked) {
+            setDarkMode();
+        } else {
+            setLightMode();
+        }
+    };
     return (
         <div>
-            <input
-                className={style.dark_mode_input}
-                type="checkbox"
-                id="darkmode-toggle"
-                checked={isDarkMode}
-                onChange={toggleTheme}
+            <Switch
+                checkedChildren={< BsFillMoonFill className={style.sun} /> }
+                unCheckedChildren={<IoIosSunny className={style.sun} />}
+                onChange={onChange}
             />
-            <label className={style.dark_mode_label} htmlFor="darkmode-toggle">
-                <IoIosSunny className={style.sun} />
-                <BsFillMoonFill className={style.moon} />
-            </label>
         </div>
     );
 };
